@@ -5,20 +5,17 @@ const list = LinkedList.from([1, 2, 3, 4, 5, 6]);
 function reverse(list) {
     const head = list.head;
 
+    let current = head;
+    let prev = null; 
+    let next = null;
 
-    let current = head.next;
-    let prev = head;
-    let next = current.next;
 
-
-    while (next.next) {
-        // current.next = prev;
-        // prev = current;
-        // const linkToNext = next;
-        // next = next.next;
-        // linkToNext.next = current;
+    while (current) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
     } 
-    head.next = null;
+    list.head = prev;
     return list;
 }
 
