@@ -6,15 +6,15 @@ function reverse(list) {
     const head = list.head;
 
     let current = head;
-    let prev = null; 
+    let prev = null;
     let next = null;
-
 
     while (current) {
         next = current.next;
         current.next = prev;
         prev = current;
-    } 
+        current = next;
+    }
     list.head = prev;
     return list;
 }
